@@ -1,0 +1,653 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <title>Rafsan Jani</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <noscript>
+        <link rel="stylesheet" href="assets/css/noscript.css" />
+    </noscript>
+    
+    <!-- Favicon -->
+    <link rel="icon" href="images/dp-1.png" type="image/png">
+    <link rel="shortcut icon" href="images/dp-1.png" type="image/png">
+
+    <!-- Internal Styles -->
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #121212; /* Dark mode background */
+            color: #ffffff;
+            margin: 20px;
+            padding: 20px;
+            text-align: justify;
+        }
+
+        /* Logo Container */
+        .logo {
+            position: relative;
+            display: inline-block;
+            width: 88px;
+            height: 88px;
+            border-radius: 50%;
+            overflow: hidden;
+        }
+
+        /* Glow Effect */
+        .logo::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+        }
+
+        /* Profile Image */
+        .profile-pic {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        /* Hover Effects */
+        .logo:hover .profile-pic {
+            transform: scale(1.2);
+        }
+
+        .logo:hover::after {
+            opacity: 1;
+            transform: scale(1.4);
+        }
+
+        .leftaligned-list {
+            text-align: left;
+        }
+
+        .justaligned-list {
+            text-align: justify;
+        }
+
+        .project-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: #1e1e1e;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 12px rgba(255, 255, 255, 0.2);
+        }
+
+        .project-title {
+            font-family: "Source Sans Pro", sans-serif;
+            font-size: 20px;
+            font-weight: normal;
+            color: #4db8ff;
+            cursor: pointer;
+            margin-bottom: 10px;
+            padding: 10px;
+            border-radius: 5px;
+            transition: all 0.3s ease-in-out;
+            text-align: left;
+        }
+
+        .project-title:hover {
+            color: #ffcc00;
+        }
+
+        .project-title.active {
+            font-weight: bold;
+            color: #ff5733;
+        }
+
+        .project-details {
+            display: none;
+            background: #292929;
+            padding: 15px;
+            margin-top: 5px;
+            border-radius: 8px;
+            text-align: left;
+            transition: all 0.3s ease-in-out;
+        }
+
+        /* PDF Section */
+        .pdf-section {
+            margin-top: 10px;
+            text-align: left;
+        }
+
+        .pdf-link {
+            color: #ffcc00;
+            text-decoration: none;
+            font-size: 14px;
+            transition: 0.3s;
+        }
+
+        .pdf-link:hover {
+            color: #ffffff;
+            text-decoration: underline;
+        }
+
+        /* Achievements Section */
+        .achievements101 {
+            text-align: center;
+            font-size: 2.2rem;
+            color: #FFD700;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .container101 {
+            max-width: 900px;
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .achievement101 {
+            background: linear-gradient(135deg, #222, #111);
+            padding: 20px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 4px 10px rgba(255, 215, 0, 0.2);
+        }
+
+        .achievement101:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 15px rgba(255, 215, 0, 0.4);
+        }
+
+        .text101 {
+            flex: 1;
+            font-size: 1rem;
+        }
+
+        .image101 img {
+            width: 110px;
+            height: auto;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: transform 0.3s ease-in-out;
+            box-shadow: 0 3px 8px rgba(255, 215, 0, 0.4);
+        }
+
+        .image101 img:hover {
+            transform: scale(1.1);
+        }
+
+        /* Lightbox for images */
+        .lightbox101 {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.85);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .lightbox101 img {
+            max-width: 90%;
+            max-height: 90%;
+            border: 4px solid white;
+            border-radius: 12px;
+        }
+
+        .close101 {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            font-size: 2rem;
+            color: white;
+            cursor: pointer;
+        }
+
+        /* Contact Section */
+        .contactSection1 {
+            text-align: center;
+            padding: 40px;
+            background: linear-gradient(135deg, #111, #222);
+            border-radius: 12px;
+            box-shadow: 0px 5px 15px rgba(255, 255, 255, 0.1);
+            max-width: 500px;
+            margin: 50px auto;
+            animation: fadeIn1 1s ease-in-out;
+        }
+
+        .contactTitle1 {
+            font-size: 28px;
+            color: #ffffff;
+            margin-bottom: 20px;
+            font-family: 'Poppins', sans-serif;
+            text-decoration: underline;
+            text-underline-offset: 25px;
+        }
+
+        /* Social Icons */
+        .socialIcons1 {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .socialIcons1 li {
+            display: inline-block;
+        }
+
+        .socialIcons1 a {
+            text-decoration: none;
+            color: #bbb;
+            font-size: 30px;
+            transition: all 0.3s ease-in-out;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            background: #222;
+            box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.05);
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Icon Hover Effects */
+        .socialIcons1 a:hover {
+            color: white;
+            transform: scale(1.2);
+            box-shadow: 0px 0px 12px rgba(255, 255, 255, 0.7);
+        }
+    </style>
+</head>
+
+
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+    <!-- Header -->
+    <header id="header">
+        <div class="logo">
+            <a href="images/dp-2.png" target="_blank" class="a_nostyle">
+                <img src="images/dp-2.png" height="88" width="88" alt="My Profile Picture" class="profile-pic">
+            </a>
+        </div>
+
+						<div class="content">
+							<div class="inner">
+								<h1>Rafsan Jani</h1>
+								<p>Combining a passion for innovation with unwavering ethical principles. Focused on developing sustainable technologies and leading with a commitment to creating positive change in challenging environments. </p>
+							</div>
+						</div>
+						<nav>
+							<ul>
+								<li><a href="#about_me">About Me</a></li>
+								<li><a href="#achievements">Triumph</a></li>
+								<li><a href="#projects">Projects</a></li>
+								<li><a href="#contact">Contact</a></li>
+								<!--<li><a href="#elements">Elements</a></li>-->
+							</ul>
+						</nav>
+					</header>
+
+				<!-- Main -->
+					<div id="main">
+
+						<!-- Intro -->
+							<article id="about_me">
+								<h2 class="major">About Me</h2>
+								<span class="image main"><img src="images/about_me.png" alt="" /></span>
+								<p align="justify">Hello! I'm <strong>Rafsan Jani</strong>, a recent graduate of Rajshahi Cadet College, where I served as College Prefect, leading 297 cadets and contributing to the smooth operation of the administration. I'm currently preparing for engineering entrance exams, driven by a passion for learning, problem-solving, and a commitment to excellence.</p>
+    
+    <h3 align="left">Education</h3>
+    <div class="leftaligned-list"><ul>
+        <li><strong>Rajshahi Cadet College</strong> – Completed Higher Secondary Certificate (HSC)  in 2025</li>
+        <li><strong>Rajshahi Board</strong> – 18<sup>th</sup> Position in SSC-2023</li>
+    </ul></div>
+    <p align="justify">My academic journey has been marked by consistent excellence, securing top positions in various national and international competitions across math, physics, astronomy, biology, essay writing, calligraphy, painting, and topical talks.</p>
+    
+    <h3 align="left">Leadership Experience</h3>
+    <p align="justify">At Rajshahi Cadet College, I took on one of the most prestigious leadership roles as College Prefect, where I:</p>
+    <div class="justaligned-list"><ul>
+        <li>Led and mentored 297 cadets, ensuring discipline, teamwork, and overall coordination.</li>
+        <li>Worked closely with the administration to maintain order and efficiency.</li>
+        <li>Organized and guided cadets in inter-house competitions, contributing to numerous team victories.</li>
+        <li>Developed decision-making and crisis management skills under high-pressure situations.</li>
+    </ul></div>
+    <p align="justify">This experience refined my leadership, adaptability, and ability to inspire teams, skills I continue to apply in every challenge I take on.</p>
+    
+    <h3 align="left">Core Strengths & Personal Qualities</h3>
+    <div class="justaligned-list"><ul>
+        <li> <strong>Spirituality & Fairness</strong> – A strong moral compass guides my decisions.</li>
+        <li> <strong>Humility & Perspective</strong> – Open to learning from every experience.</li>
+        <li> <strong>Leadership & Teamwork</strong> – A natural leader who thrives in collaborative environments.</li>
+        <li> <strong>Innovative Thinking</strong> – I love solving complex problems with creative solutions.</li>
+        <li> <strong>Detail-Oriented & Analytical</strong> – I focus on precision while tackling challenges.</li>
+        <li> <strong>Adaptability & Strategic Thinking</strong> – Comfortable in high-pressure, dynamic environments.</li>
+    </ul></div>
+    <p align="justify">The following statement fuels my ambition:</p>
+    <blockquote>
+        <p><em>"The world deserves leaders who are both capable and principled—be one of them."</em></p>
+    </blockquote>
+    
+    <h3 align="left">Skills</h3>
+    <div class="justaligned-list"><ul>
+        <li><strong>Problem-Solving & Critical Thinking</strong> – Finding solutions where others see obstacles.</li><br>
+        <li><strong>Programming Languages:</strong>
+            <ul type="disc">
+                <li>Python</li>
+                <li>C</li>
+                <li>HTML</li>
+            </ul>
+        </li>
+        <li><strong>Software Proficiency:</strong>
+            <ul type="disc">
+                <li>Microsoft Office Suite (Word, Excel, PowerPoint, Access)</li>
+                <li>Photopea & Vectorpea (Graphic Design & Digital Art)</li>
+                <li>Arduino IDE (Microcontroller Programming)</li>
+            </ul>
+        </li>
+        <li><strong>Scientific Research & Engineering Concepts</strong> – Passionate about renewable energy, waste-to-energy transformation, and water purification technologies.</li>
+    </ul></div>
+    
+    <p align="justify">I'm eager to apply my skills, leadership, and problem-solving mindset to new challenges and continue my journey of growth and achievement.</p>
+    <p align="justify">By the way, don’t forget to check out my <a href="#achievements">achievements</a> and <a href="#projects">projects</a>!</p>
+							</article>
+
+						<!-- Work -->
+							<article id="achievements">
+								<h2 class="major">Achievements</h2>
+								<!--<span class="image main"><img src="images/pic02.jpg" alt="" /></span>-->
+    <div class="container101">
+
+    <div class="achievement101">
+        <div class="text101">
+            <strong>🏆 International Youth Math Challenge (IYMC)</strong><br>
+            Organizer: IYMC | Year: 2024 | Position: Silver Honor<br>
+            Qualifier: 2018-2023
+        </div>
+        <div class="image101">
+            <img src="certificates/iymc.jpg" alt="IYMC" onclick="openLightbox101(this.src)">
+        </div>
+    </div>
+
+    <div class="achievement101">
+        <div class="text101">
+            <strong>🏆 Transparency International Bangladesh (TIB) Anti-Corruption Cartoon Competition</strong><br>
+            Organizer: Transparency International Bangladesh (TIB) | Year: 2022 | Position: 1st Place<br>
+            Special Mention: 2019-2021
+        </div>
+        <div class="image101">
+            <img src="certificates/TIB22.jpg" alt="TIB Award" onclick="openLightbox101(this.src)">
+        </div>
+    </div>
+
+    <div class="achievement101">
+        <div class="text101">
+            <strong>🏆 National Math Olympiad</strong><br>
+            Organizer: Bangladesh Mathematical Olympiad Committee | Year: 2022 | Position: Regional Winner
+        </div>
+        <div class="image101">
+            <img src="certificates/BdMO22.jpg" alt="Math Olympiad" onclick="openLightbox101(this.src)">
+        </div>
+    </div>
+
+    <div class="achievement101">
+        <div class="text101">
+            <strong>🏆 National Physics Olympiad</strong><br>
+            Organizer: Bangladesh Physics Olympiad Committee | Year: 2022 | Position: Regional Winner
+        </div>
+        <div class="image101">
+            <img src="certificates/BdPhO.jpg" alt="Physics Olympiad" onclick="openLightbox101(this.src)">
+        </div>
+    </div>
+
+    <div class="achievement101">
+        <div class="text101">
+            <strong>🏆 Bangladesh Junior Science Olympiad</strong><br>
+            Organizer: Bangladesh Junior Science Olympiad Committee | Year: 2020 | Position: National Winner<br>
+            Regional Winner: 2021
+        </div>
+        <div class="image101">
+            <img src="certificates/BdJSO.jpg" alt="Science Olympiad" onclick="openLightbox101(this.src)">
+        </div>
+    </div>
+
+    <div class="achievement101">
+        <div class="text101">
+            <strong>🏆 IAAC (International Astronomy & Astrophysics Competition)</strong><br>
+            Organizer: IAAC | Year: 2022 | Position: Qualifier
+        </div>
+        <div class="image101">
+            <img src="certificates/IAAC.jpg" alt="IAAC" onclick="openLightbox101(this.src)">
+        </div>
+    </div>
+
+    <div class="achievement101">
+        <div class="text101">
+            <strong>🏆 National Biology Olympiad</strong><br>
+            Organizer: Higsinno Science Society | Year: 2020 | Position: Best Academic Team Member
+        </div>
+        <!--<div class="image101">
+            <img src="certificates/biology_olympiad.jpg" alt="Biology Olympiad" onclick="openLightbox101(this.src)">
+        </div>-->
+    </div>
+
+    <div class="achievement101">
+        <div class="text101">
+            <strong>📚 Academic Excellence</strong><br>
+            Organizer: Rajshahi Cadet College | Year: 2019 | Position: 1st<br>
+            Year: 2020 | Position: 2nd<br>
+            Year: 2022 | Position: 3rd<br>
+            18th in SSC (Rajshahi Board)
+        </div>
+        <!--<div class="image101">
+            <img src="certificates/academic.jpg" alt="Academic Excellence" onclick="openLightbox101(this.src)">
+        </div>-->
+    </div>
+
+    <div class="achievement101">
+        <div class="text101">
+            <strong>🎨 Creativity Champion</strong><br>
+            Organizer: Rajshahi Cadet College | Year: 2022, 2024 | Position: 1st Prize
+        </div>
+        <!--<div class="image101">
+            <img src="certificates/creativity.jpg" alt="Creativity Champion" onclick="openLightbox101(this.src)">
+        </div>-->
+    </div>
+
+    <div class="achievement101">
+        <div class="text101">
+            <strong>🏆 Inter-House Wall Magazine Competition - Best Essay (English)</strong><br>
+            Organizer: Rajshahi Cadet College | Year: 2023 | Position: 1st Prize
+        </div>
+        <!--<div class="image101">
+            <img src="certificates/essay.jpg" alt="Essay Award" onclick="openLightbox101(this.src)">
+        </div>-->
+    </div>
+
+    <div class="achievement101">
+        <div class="text101">
+            <strong>🏆 Inter-House Wall Magazine Competition - Best Calligraphy (English)</strong><br>
+            Organizer: Rajshahi Cadet College | Year: 2024 | Position: 1st Prize
+        </div>
+        <!--<div class="image101">
+            <img src="certificates/calligraphy.jpg" alt="Calligraphy Award" onclick="openLightbox101(this.src)">
+        </div>-->
+    </div>
+
+    <div class="achievement101">
+        <div class="text101">
+            <strong>🏆 Essay and Painting Awards</strong><br>
+            Organizer: Rajshahi Cadet College | Position: Multiple Awards<br>
+            Essays: 8 First Prizes<br>
+            Paintings: 2 First Prizes, 1 Second Prize, 1 Third Prize
+        </div>
+        <!--<div class="image101">
+            <img src="certificates/essay_painting.jpg" alt="Essay and Painting Awards" onclick="openLightbox101(this.src)">
+        </div>-->
+    </div>
+
+    <div class="achievement101">
+        <div class="text101">
+            <strong>🏆 Topical Talks (COP26)</strong><br>
+            Organizer: British Council | Position: Participant
+        </div>
+        <div class="image101">
+            <img src="certificates/cop26.jpg" alt="COP26 Participation" onclick="openLightbox101(this.src)">
+        </div>
+    </div>
+
+    <div class="achievement101">
+        <div class="text101">
+            <strong>🏆 Champion Squad – Inter-House Volleyball</strong><br>
+            Organizer: Rajshahi Cadet College | Year: 2023, 2024 | Position: Champion Squad
+        </div>
+        <!--<div class="image101">
+            <img src="certificates/volleyball.jpg" alt="Volleyball Champion" onclick="openLightbox101(this.src)">
+        </div>-->
+    </div>
+
+    <div class="achievement101">
+        <div class="text101">
+            <strong>🏆 Best Team – Inter-House Obstacle Course</strong><br>
+            Organizer: Rajshahi Cadet College | Year: 2020 | Position: Best Team
+        </div>
+        <!--<div class="image101">
+            <img src="certificates/obstacle_course.jpg" alt="Obstacle Course" onclick="openLightbox101(this.src)">
+        </div>-->
+    </div>
+
+</div>
+
+    <!-- Lightbox -->
+    <div id="lightbox101" class="lightbox101">
+        <span class="close101" onclick="closeLightbox101()">&times;</span>
+        <img id="lightbox-img101">
+    </div>
+							</article>
+
+						<!-- About -->
+							<article id="projects">
+								<h2 class="major">Projects</h2>
+								<span class="image main"><img src="images/Triumph.png" alt="" title="Judges and the winning team of the 2024 Inter-House Creativity Exhibition."/></span>
+<p style="text-align: center; color: white; font-weight: bold;">Judges and the winning team of the 2024 Inter-House Creativity Exhibition</p>
+								<div class="project-container">
+        <div>
+            <p align="justify" class="project-title" onclick="toggleDetails('project1', this)"> <strong>Project 1:</strong> HAYTHAM X ONE: A Reliable Energy Nexus</p>
+            <div id="project1" class="project-details">
+                <p align="justify" >This project proposes an innovative approach to address Bangladesh's energy challenges by integrating Concentrating Solar Power (CSP) technology with advanced energy storage systems and AI-driven management. I contributed to the conceptualization and development of a framework that leverages Bangladesh's geographical potential to optimize energy efficiency and promote green energy leadership. This project also explores hydrogen production as a renewable fuel source.</p>
+                <p align="justify"><strong>Key Contributions:</strong> Conceptual design, research and analysis, system integration, renewable energy solutions.</p>
+                <p align="justify"><strong>Key Skills:</strong> Renewable Energy, System Design, AI Integration, Research, Problem Solving.</p>
+                <div class="pdf-section">
+                    📄 <a href="pdf/HAYTHAM X ONE- A Reliable Energy Nexus.pdf" class="pdf-link" target="_blank">View PDF</a>
+                </div>
+            </div>
+        </div>
+
+        <div>
+
+            <p align="justify" class="project-title" onclick="toggleDetails('project2', this)"> <strong>Project 2:</strong> Harnessing the Sun: A Proposal for Advanced Heliostat Implementation to Device Concentrated Solar Power in Bangladesh</p>
+            <div id="project2" class="project-details">
+                <p align="justify">This project focused on designing and implementing robust heliostats for Concentrated Solar Power (CSP) to address Bangladesh's power crisis. My work involved developing a feasibility study, designing the heliostats, and creating a detailed implementation plan, taking into account the country's susceptibility to natural disasters. This initiative aimed to increase renewable energy use and reduce carbon emissions.</p>
+                <p align="justify" ><strong>Key Contributions:</strong> Feasibility study, heliostat design, implementation planning, renewable energy integration.</p>
+                <p align="justify" ><strong>Key Skills:</strong> Solar Energy, Engineering Design, Project Management, Sustainability.</p>
+                <div class="pdf-section">
+                    📄 <a href="pdf/Current Power Generation Crisis in Bangladesh.pdf" class="pdf-link" target="_blank">View PDF</a>
+                </div>
+            </div>
+        </div>
+
+        <div>
+            <p align="justify" class="project-title" onclick="toggleDetails('project3', this)"> <strong>Project 3:</strong> Eco-Alchemy: The Art of Simple Waste to Energy Transformation</p>
+            <div id="project3" class="project-details">
+                <p align="justify">Eco-Alchemy tackles Bangladesh's plastic waste management crisis by proposing an innovative incineration process for halogen-free plastics. The project focuses on converting waste into energy while ensuring safe and environmentally responsible practices. My role involved researching and developing a system that includes waste management, energy generation, and safe incineration methods. This project highlights my commitment to sustainable solutions and environmental protection.</p>
+                <p align="justify"><strong>Key Contributions:</strong> Research, system design, environmental sustainability, waste management solutions.</p>
+                <p align="justify"><strong>Key Skills:</strong> Waste Management, Renewable Energy, Environmental Science, System Design.</p>
+                <div class="pdf-section">
+                    📄 <a href="pdf/Eco-Alchemy.pdf" class="pdf-link" target="_blank">View PDF</a>
+                </div>
+            </div>
+        </div>
+
+        <div>
+            <p align="justify" class="project-title" onclick="toggleDetails('project4', this)"> <strong>Project 4:</strong> Integration of Enhanced Direct Contact Membrane Distillation and Parabolic Trough Reflector: A Sustainable Solution for the Water Quality Issues in Bangladesh</p>
+            <div id="project4" class="project-details">
+                <p align="justify">This project addresses Bangladesh's water quality challenges by integrating enhanced Direct Contact Membrane Distillation (DCMD) with Parabolic Trough Reflectors (PTR). I contributed to the research and development of a self-sufficient, reliable, and sustainable water purification system. This involved modifying DCMD with superhydrophobic coatings and vortex generators, and utilizing PTR with metallic wastes for heating. The project also included a self-sufficient system using Photovoltaic (PV) cells. This project provides a daily average of 5 liters of safe distilled water per person within the water plant range.</p>
+                <p align="justify"><strong>Key Contributions:</strong> Research, system design, water purification, renewable energy integration.</p>
+                <p align="justify"><strong>Key Skills:</strong> Water Purification, Renewable Energy, Engineering Design, Research, Problem Solving.</p>
+                <div class="pdf-section">
+                    📄 <a href="pdf/DCMD_PTR.pdf" class="pdf-link" target="_blank">View PDF</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Internal JavaScript -->
+    <script>
+        function toggleDetails(projectId, element) {
+            var details = document.getElementById(projectId);
+            if (details.style.display === "none" || details.style.display === "") {
+                details.style.display = "block";
+                element.classList.add("active"); // Make text bold on click
+            } else {
+                details.style.display = "none";
+                element.classList.remove("active"); // Remove bold effect when collapsed
+            }
+        }
+    </script>
+							</article>
+
+						<!-- Contact -->
+							<article id="contact" class="contactSection1">
+        <h2 class="major">Contact</h2>
+        <ul class="socialIcons1">
+            <!--<li><a href="#" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a></li>-->
+            <li><a href="https://www.facebook.com/rafsan.jani.402308" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a></li>
+            <li><a href="https://www.linkedin.com/in/rafsan-jani-597756356/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a></li>
+            <li><a href="mailto:2972rafsan@gmail.com" target="_blank" aria-label="Gmail"><i class="far fa-envelope"></i></a></li>
+            <li><a href="https://github.com/rafsan-j" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a></li>
+    </ul>
+                                
+    </article>
+					</div>
+
+				<!-- Footer -->
+					<footer id="footer">
+						<p class="copyright">&copy; Rafsan Jani </p>
+					</footer>
+
+			</div>
+
+		<!-- BG -->
+			<div id="bg"></div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
