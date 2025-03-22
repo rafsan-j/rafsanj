@@ -1,11 +1,6 @@
 @import url(fontawesome-all.min.css);
 @import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:300italic,600italic,300,600");
 
-/*
-	Dimension by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
-*/
 
 html, body, div, span, applet, object,
 iframe, h1, h2, h3, h4, h5, h6, p, blockquote,
@@ -1357,12 +1352,16 @@ input, select, textarea {
 			list-style: none;
 			padding-left: 0;
 			border: solid 1px #ffffff;
-			border-radius: 4px;
+			border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4); /* Deeper shadow */
+            background-color: #222222; /* Slightly lighter nav background */
 		}
 
 			#header nav ul li {
 				padding-left: 0;
 				border-left: solid 1px #ffffff;
+                position: relative;
 			}
 
 				#header nav ul li:first-child {
@@ -1374,15 +1373,19 @@ input, select, textarea {
 					min-width: 7.5rem;
 					height: 2.75rem;
 					line-height: 2.75rem;
-					padding: 0 1.25rem 0 1.45rem;
+					
 					text-transform: uppercase;
 					letter-spacing: 0.2rem;
 					font-size: 0.8rem;
 					border-bottom: 0;
+                    color: #e0e0e0;
+                    font-weight: 500;
+                    transition: color 0.3s ease, background-color 0.3s ease;
 				}
 
 					#header nav ul li a:hover {
-						background-color: rgba(255, 255, 255, 0.075);
+						color: #ffffff; /* Brighter text on hover */
+            background-color: rgba(255, 255, 255, 0.05); /* Subtle background hover */
 					}
 
 					#header nav ul li a:active {
@@ -1403,7 +1406,40 @@ input, select, textarea {
 		#header nav.use-middle ul li.is-middle {
 			border-left: 0;
 		}
+        /* Animated underline effect */
+       #header nav ul li a::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0)); /* Gradient underline */
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s ease;
+        }
 
+      #header  nav ul li a:hover::before {
+            transform: scaleX(1);
+        }
+
+        /* Subtle glow effect on the nav bar */
+      #header  nav ul {
+            position: relative;
+        }
+
+      #header  nav ul::after {
+            content: '';
+            position: absolute;
+            top: -5px;
+            left: -5px;
+            right: -5px;
+            bottom: -5px;
+            background: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+            z-index: -1;
+            border-radius: 14px;
+        }
 		body.is-article-visible #header {
 			-moz-transform: scale(0.95);
 			-webkit-transform: scale(0.95);
