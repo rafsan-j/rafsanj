@@ -16,6 +16,7 @@
     <!-- Favicon -->
     <link rel="icon" href="images/dp-1.png" type="image/png">
     <link rel="shortcut icon" href="images/dp-1.png" type="image/png">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
 
     <!-- Internal Styles -->
     <style>
@@ -27,6 +28,34 @@
             padding: 20px;
             text-align: justify;
         }
+        .strength-container102 {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: center; /* Vertically align items */
+  }
+
+  .strength-box102 {
+    padding: 10px 15px; /* Reduced padding */
+    margin: 5px; /* Reduced margin */
+    background-color: rgba(255, 255, 255, 0.1); /* More subtle background */
+    border-radius: 5px; /* Reduced border radius */
+    transition: transform 0.2s ease-in-out; /* Faster transition */
+    cursor: default;
+    flex: 0 1 auto;
+    text-align: center; /* Center text within box */
+  }
+
+  .strength-box102:hover {
+    transform: scale(1.02); /* More subtle scale-up */
+  }
+
+  .strength-box102 p {
+    margin: 0;
+    font-size: 1em; /* Slightly smaller font */
+    color: #ccc; /* More subtle text color */
+    white-space: nowrap;
+  }
 
         /* Logo Container */
         .logo {
@@ -276,6 +305,40 @@
             transform: scale(1.2);
             box-shadow: 0px 0px 12px rgba(255, 255, 255, 0.7);
         }
+        .name-heading { /* Specified version of heading */
+            font-family: "Source Sans Pro", sans-serif;
+            font-size: 3.5em;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: #ffffff;
+            text-shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
+            position: relative;
+            overflow: hidden;
+            border-radius: 25px;
+        }
+
+        .name-heading::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transform: translateX(-100%);
+            animation: slide 5s linear infinite;
+            
+        }
+
+        @keyframes slide {
+            0% {
+                transform: translateX(-100%);
+            }
+            100% {
+                transform: translateX(100%);
+            }
+        }
     </style>
 </head>
 
@@ -295,7 +358,20 @@
 
 						<div class="content">
 							<div class="inner">
-								<h1>Rafsan Jani</h1>
+								<div class="name-heading-container">
+                                        <h1 class="name-heading">Rafsan Jani</h1>
+                                 </div>
+                               <div class="strength-container102">
+    <div class="strength-box102">
+      <p>Solution-Oriented Innovator</p>
+    </div>
+    <div class="strength-box102">
+      <p>Agile Learner</p>
+    </div>
+    <div class="strength-box102">
+      <p>Results-Driven Professional</p>
+    </div>
+  </div>
 								<p>Combining a passion for innovation with unwavering ethical principles. Focused on developing sustainable technologies and leading with a commitment to creating positive change in challenging environments. </p>
 							</div>
 						</div>
