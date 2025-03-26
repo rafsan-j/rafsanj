@@ -1138,12 +1138,12 @@ input, select, textarea {
 			-webkit-transition: opacity 0.325s ease-in-out, -webkit-transform 0.325s ease-in-out;
 			-ms-transition: opacity 0.325s ease-in-out, -ms-transform 0.325s ease-in-out;
 			transition: opacity 0.325s ease-in-out, transform 0.325s ease-in-out;
-			padding: 4.5rem 2.5rem 1.5rem 2.5rem ;
+			padding: 4rem 3rem 4rem 3rem ;
 			position: relative;
-			width: 40rem;
+			width: 95%;
 			max-width: 100%;
 			background-color: rgba(27, 31, 34, 0.85);
-			border-radius: 4px;
+			border-radius:15px;
 			opacity: 0;
 		}
 
@@ -1196,10 +1196,12 @@ input, select, textarea {
 				}
 
 		@media screen and (max-width: 736px) {
-
-			#main article {
-				padding: 3.5rem 2rem 0.5rem 2rem ;
-			}
+         #main article {
+          padding: 2rem 1rem 2rem 1rem; /* Reduced padding */
+           width: 99%; /* Use percentage for smaller screens */
+           height: auto; /* Allow height to adjust to content */
+            }
+        }
 
 				#main article .close:before {
 					top: 0.875rem;
@@ -1212,12 +1214,18 @@ input, select, textarea {
 		}
 
 		@media screen and (max-width: 480px) {
+    #main article {
+        padding: 1.5rem 0.75rem 1.5rem 0.75rem; /* Further reduced padding */
+        width: 100%; /* Increase width for very small screens */
+    }
+}
 
-			#main article {
-				padding: 3rem 1.5rem 0.5rem 1.5rem ;
-			}
-
-		}
+@media screen and (max-width: 320px) {
+    #main article {
+        padding: 1rem 0.5rem 1rem 0.5rem; /* Even more reduced padding */
+        width: 100%; /* Ensure it fills as much as possible */
+    }
+}
 
 /* Footer */
 
