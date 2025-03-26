@@ -5,7 +5,7 @@
     <title>Rafsan Jani</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-    <link rel="preload" as="image" href="https://placehold.co/800x500/FF5733/FFFFFF?text=1"> <!--preloading the 1st image-->
+    <!--<link rel="preload" as="image" href="https://placehold.co/800x500/FF5733/FFFFFF?text=1">--> <!--preloading the 1st image-->
     
     <!-- Stylesheets -->
     <link rel="stylesheet" href="assets/css/main.css" />
@@ -15,7 +15,7 @@
     </noscript>
     
     <!-- Favicon -->
-    <link rel="icon" href="images/dp-1.png" type="image/png">
+    <link rel="icon" href="images/dp-2.png" type="image/png">
     <link rel="shortcut icon" href="images/dp-1.png" type="image/png">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
 
@@ -328,40 +328,60 @@
         }
     }
         /*Contact Segment Ends*/
-        .name-heading { /* Specified version of heading */
-            font-family: "Source Sans Pro", sans-serif;
-            font-size: 3.5em;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            color: #ffffff;
-            text-shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
-            position: relative;
-            overflow: hidden;
-            border-radius: 25px;
-        }
 
-        .name-heading::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-            transform: translateX(-100%);
-            animation: slide 5s linear infinite;
-            
-        }
+        .name-heading {
+    font-family: "Source Sans Pro", sans-serif;
+    font-size: 3.5em; /* Default size for larger screens */
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #ffffff;
+    text-shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
+    position: relative;
+    overflow: hidden;
+    border-radius: 25px;
+}
 
-        @keyframes slide {
-            0% {
-                transform: translateX(-100%);
-            }
-            100% {
-                transform: translateX(100%);
-            }
-        }
+.name-heading::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transform: translateX(-100%);
+    animation: slide 5s linear infinite;
+}
+
+@keyframes slide {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+/* Media Queries for Responsiveness */
+
+@media screen and (max-width: 768px) {
+    .name-heading {
+        font-size: 2.5em; /* Smaller font size for tablets */
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .name-heading {
+        font-size: 2em; /* Smaller font size for mobile */
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .name-heading {
+        font-size: 1.7em; /* Even smaller font size for very small screens */
+    }
+}
          /*Photo Gallary*/
     * {
         margin: 0;
@@ -826,16 +846,70 @@
 
 						<!-- Contact -->
 							<article id="contact" class="contactSection1">
-        <h2 class="major">Contact</h2>
-        <ul class="socialIcons1">
-            <!--<li><a href="#" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a></li>-->
-            <li><a href="https://www.facebook.com/rafsan.jani.402308" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a></li>
-            <li><a href="https://www.linkedin.com/in/rafsan-jani-597756356/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a></li>
-            <li><a href="mailto:2972rafsan@gmail.com" target="_blank" aria-label="Gmail"><i class="far fa-envelope"></i></a></li>
-            <li><a href="https://github.com/rafsan-j" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a></li>
+    <h2 class="major">Contact</h2>
+    <ul class="socialIcons1">
+        <li><a href="https://www.facebook.com/rafsan.jani.402308" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a></li>
+        <li><a href="https://www.linkedin.com/in/rafsan-jani-597756356/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a></li>
+        <li><a href="mailto:2972rafsan@gmail.com" target="_blank" aria-label="Gmail"><i class="far fa-envelope"></i></a></li>
+        <li><a href="https://github.com/rafsan-j" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a></li>
     </ul>
-                                
-    </article>
+</article>
+
+<style>
+#contact {
+    position: relative;
+    padding: 2rem;
+    background-color: rgba(27, 31, 34, 0.85);
+    border-radius: 4px;
+    width: 80%;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.socialIcons1 {
+    display: flex; /* This is the key line */
+    justify-content: center; /* Centers the icons */
+    list-style: none;
+    padding: 0;
+}
+
+.socialIcons1 li {
+    margin: 0 1rem;
+}
+
+.socialIcons1 a {
+    font-size: 2rem;
+    color: white;
+}
+
+/* Media Queries for Responsiveness */
+
+@media screen and (max-width: 768px) {
+    #contact {
+        width: 90%;
+        padding: 1.5rem;
+    }
+
+    .socialIcons1 a {
+        font-size: 1.8rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    #contact {
+        width: 95%;
+        padding: 1rem;
+    }
+
+    .socialIcons1 li {
+        margin: 0 0.5rem;
+    }
+
+    .socialIcons1 a {
+        font-size: 1.5rem;
+    }
+}
+</style>
             <article id="photo">
     <div class="slider-container">
         <div class="slider">
